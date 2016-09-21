@@ -1,4 +1,3 @@
-import org.json.JSONObject;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -12,17 +11,28 @@ public class AndroidPush {
     private static String SERVER_KEY = "YOUR_SERVER_KEY";
     private static String DEVICE_TOKEN = "YOUR_DEVICE_TOKEN";
 
+
+    /**
+     * USE THIS METHOD to send push notification
+     */
     public static void main(String[] args) throws Exception {
-        // Prepare JSON containing the FCM message content. What to send and where to send.
-        JSONObject jFcmData = new JSONObject();
-        JSONObject jData = new JSONObject();
-        jData.put("title", "My First Notification");
-        jData.put("message", "Hello, I'm push notification");
+        String title = "My First Notification";
+        String message = "Hello, I'm push notification";
+        sendPushNotification(title, message);
+    }
 
-        jFcmData.put("to", DEVICE_TOKEN);
-        // What to send in FCM message.
-        jFcmData.put("data", jData);
 
+    /**
+     * Sends notification to mobile, YOU DON'T NEED TO UNDERSTAND THIS METHOD
+     */
+    private static void sendPushNotification(String title, String message) throws Exception {
+        String pushMessage = "{\"data\":{\"title\":\"" +
+                title +
+                "\",\"message\":\"" +
+                message +
+                "\"},\"to\":\"" +
+                DEVICE_TOKEN +
+                "\"}";
         // Create connection to send FCM Message request.
         URL url = new URL("https://fcm.googleapis.com/fcm/send");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -33,7 +43,7 @@ public class AndroidPush {
 
         // Send FCM message content.
         OutputStream outputStream = conn.getOutputStream();
-        outputStream.write(jFcmData.toString().getBytes());
+        outputStream.write(pushMessage.getBytes());
 
         System.out.println(conn.getResponseCode());
         System.out.println(conn.getResponseMessage());

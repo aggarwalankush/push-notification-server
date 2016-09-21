@@ -10,11 +10,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20090211</version>
-        </dependency>
-        <dependency>
             <groupId>com.notnoop.apns</groupId>
             <artifactId>apns</artifactId>
             <version>1.0.0.Beta6</version>
