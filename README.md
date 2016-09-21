@@ -3,12 +3,6 @@ Push Notification Server
 
 This can be used to send Push Notification to iOS or Android Device.
   
-
-## Getting Started
-
-* Clone this repository.
-* Run `mvn install` from the project root.
-
 ### Android Push Notification
 
 * ```SEVER_KEY``` - if you don't have SERVER_KEY, generate using [this tutorial](https://medium.com/@ankushaggarwal/gcm-setup-for-android-push-notifications-656cfdd8adbd) :tada:
@@ -26,7 +20,13 @@ This can be used to send Push Notification to iOS or Android Device.
 * ```DEVICE_TOKEN``` - if you don't have device token, in case of Ionic 2, use [this tutorial](https://medium.com/@ankushaggarwal/push-notifications-in-ionic-2-658461108c59) or [this repo](https://github.com/aggarwalankush/ionic2-push-base) :+1:
 * ```IOSPush.java``` - run this file to push notification to iOS device
 
+Linux/Mac
   ```
-  $ javac IOSPush.java
-  $ java IOSPush
+  $ javac -cp ".:vendor/*" IOSPush.java
+  $ java -cp ".:vendor/*" IOSPush
+  ```
+Windows
+  ```
+  $ javac -cp ".;vendor/*" IOSPush.java
+  $ java -cp ".;vendor/*" IOSPush
   ```
