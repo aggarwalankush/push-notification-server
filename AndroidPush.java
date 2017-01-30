@@ -5,10 +5,10 @@ import java.net.URL;
 public class AndroidPush {
 
     /**
-     * Replace FCM_TOKEN with your FCM_TOKEN generated from FCM
+     * Replace SERVER_KEY with your SERVER_KEY generated from FCM
      * Replace DEVICE_TOKEN with your DEVICE_TOKEN
      */
-    private static String FCM_TOKEN = "YOUR_FCM_TOKEN";
+    private static String SERVER_KEY = "YOUR_SERVER_KEY";
     private static String DEVICE_TOKEN = "YOUR_DEVICE_TOKEN";
 
 
@@ -36,7 +36,7 @@ public class AndroidPush {
         // Create connection to send FCM Message request.
         URL url = new URL("https://fcm.googleapis.com/fcm/send");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestProperty("Authorization", "key=" + FCM_TOKEN);
+        conn.setRequestProperty("Authorization", "key=" + SERVER_KEY);
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setRequestMethod("POST");
         conn.setDoOutput(true);
