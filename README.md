@@ -1,7 +1,8 @@
 Push Notification Server
 ========================
 
-This can be used to send Push Notification to iOS or Android Device.
+This can be used to send Push Notification to iOS or Android Devicu.
+
   
 ### Android Push Notification
 
